@@ -1,6 +1,5 @@
-export type Language = "da" | "en";
-
-export const translations: Record<Language, Record<string, string>> = {
+/* Bilingual copy — Danish (default) + English */
+window.I18N = {
   da: {
     "doc.title": "Mathias Oliver Nielsen — Freelance webudvikler i Aalborg",
     "nav.about": "Om mig",
@@ -63,7 +62,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "form.submit": "Send besked",
     "form.hint": "Åbner i dit e-mailprogram med beskeden klar.",
 
+    "footer.tag": "Freelance webudvikler i Aalborg.",
     "footer.made": "Designet & kodet i Aalborg",
+    "footer.rights": "Alle rettigheder forbeholdes."
   },
 
   en: {
@@ -128,32 +129,17 @@ export const translations: Record<Language, Record<string, string>> = {
     "form.submit": "Send message",
     "form.hint": "Opens in your email app with the message ready.",
 
+    "footer.tag": "Freelance web developer in Aalborg.",
     "footer.made": "Designed & coded in Aalborg",
-  },
+    "footer.rights": "All rights reserved."
+  }
 };
 
-export const rotatingWords = {
+/* Rotating hero words — neuter gender in Danish to match "dit ___" */
+window.ROTATE = {
   da: ["website", "produkt", "interface", "projekt", "designsystem", "API", "miljø"],
-  en: ["website", "product", "interface", "app", "platform", "API", "environment"],
+  en: ["website", "product", "interface", "app", "platform", "API", "environment"]
 };
 
-export const ghostDivider = ["Next.js", "React", "TypeScript", "Tailwind", "SCSS", "PostgreSQL", "MongoDB", "Figma", "Claude Code"];
-
-export const techStack = [
-  [
-    { name: "Next.js", slug: "nextdotjs", url: "https://nextjs.org/docs" },
-    { name: "React", slug: "react", url: "https://react.dev/learn" },
-    { name: "TypeScript", slug: "typescript", url: "https://www.typescriptlang.org/docs/" },
-    { name: "Tailwind", slug: "tailwindcss", url: "https://tailwindcss.com/docs" },
-    { name: "SCSS / Sass", slug: "sass", url: "https://sass-lang.com/documentation/" },
-    { name: "Figma", slug: "figma", url: "https://www.figma.com/" }
-  ],
-  [
-    { name: "JavaScript", slug: "javascript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-    { name: "PostgreSQL", slug: "postgresql", url: "https://www.postgresql.org/docs/" },
-    { name: "MongoDB", slug: "mongodb", url: "https://www.mongodb.com/docs/" },
-    { name: "SQL", icon: "database", url: "https://www.w3schools.com/sql/" },
-    { name: "TanStack Query", icon: "funnel", url: "https://tanstack.com/query/latest" },
-    { name: "Claude Code", slug: "claude", url: "https://docs.anthropic.com/en/docs/claude-code" }
-  ]
-] as const;
+/* Ghost divider keywords (language-neutral tech terms) */
+window.GHOST = ["Next.js", "React", "TypeScript", "Tailwind", "SCSS", "PostgreSQL", "MongoDB", "Figma", "Claude Code"];

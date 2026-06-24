@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathias Oliver Nielsen — Freelance webudvikler i Aalborg</title>
+<link rel="stylesheet" href="_ds/figma-design-system-e12d6a3f-3688-4045-8635-e96e62c32f0a/colors_and_type.css">
+<link rel="stylesheet" href="assets/styles.css">
+<script>/* enable entrance animations before first paint; reveal stays visible without it */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("js-anim");</script>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body data-layout="b" style="background-color: rgb(255, 255, 255); font-family: BlinkMacSystemFont">
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>Mathias Oliver Nielsen</span>
+      </a>
+      <nav class="nav__links">
+        <a href="#about" data-i18n="nav.about">Om mig</a>
+        <a href="#stack" data-i18n="nav.stack">Stak</a>
+        <a href="#services" data-i18n="nav.services">Ydelser</a>
+        <a href="#projects" data-i18n="nav.projects">Projekter</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      </nav>
+      <div class="nav__right">
+        <div class="seg seg--lang" role="group" aria-label="Language">
+          <button data-lang="da">DA</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <a class="btn btn--dark btn--sm" href="#contact" data-i18n="nav.cta">Skriv til mig</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="hero__blob" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__main">
+        <span class="badge reveal"><span class="badge__dot"></span><span data-i18n="hero.badge">Ledig til nye projekter</span></span>
+        <p class="eyebrow reveal" data-d="1" style="margin-top:22px" data-i18n="hero.eyebrow">Freelance webudvikler · Aalborg</p>
+        <h1 class="h-xl hero__title reveal" data-d="2">
+          <span data-i18n="hero.pre">Jeg arbejder på dit</span>
+          <span class="rotator"><span class="rotator__word" id="rotword">website</span><span class="rotator__caret" aria-hidden="true"></span></span>
+        </h1>
+        <p class="lead hero__sub reveal" data-d="3" data-i18n="hero.sub">Jeg hjælper virksomheder og iværksættere i Aalborg med at bygge hurtige, moderne webløsninger — fra første streg i Figma til kode i produktion.</p>
+        <div class="hero__cta reveal" data-d="4">
+          <a class="btn btn--accent" href="#contact"><span data-i18n="hero.cta1">Lad os tale sammen</span><i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--ghost" href="#stack" data-i18n="hero.cta2">Se min stak</a>
+        </div>
+      </div>
+
+      <!-- layout B side card -->
+      <aside class="hero__aside reveal" data-d="2">
+        <div class="codecard">
+          <div class="codecard__bar">
+            <i style="background:#FF5F56"></i><i style="background:#FFBD2E"></i><i style="background:#27C93F"></i>
+            <span class="codecard__file">portfolio.tsx</span>
+          </div>
+          <div class="codecard__body">
+            <div><span class="ln">1</span><span class="tok-key">const</span> <span class="tok-var">dev</span> = {</div>
+            <div><span class="ln">2</span>&nbsp;&nbsp;<span class="tok-fn">navn</span>: <span class="tok-str">'Mathias O. Nielsen'</span>,</div>
+            <div><span class="ln">3</span>&nbsp;&nbsp;<span class="tok-fn">by</span>: <span class="tok-str">'Aalborg'</span>,</div>
+            <div><span class="ln">4</span>&nbsp;&nbsp;<span class="tok-fn">stack</span>: [<span class="tok-str">'Next'</span>, <span class="tok-str">'TS'</span>, <span class="tok-str">'SQL'</span>],</div>
+            <div><span class="ln">5</span>&nbsp;&nbsp;<span class="tok-fn">ledig</span>: <span class="tok-key">true</span>,</div>
+            <div><span class="ln">6</span>}</div>
+            <div><span class="ln">7</span></div>
+            <div><span class="ln">8</span><span class="tok-com">// bygger ting der bare virker</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== GHOST MARQUEE ===================== -->
+  <div class="ghostbar" aria-hidden="true">
+    <div class="ghost-track" id="ghost-track"></div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container about__grid">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="about.eyebrow">Om mig</p>
+        <h2 class="h-lg" style="margin-top:16px" data-i18n="about.heading">Kode med omtanke. Design med karakter.</h2>
+        <div class="about__photo reveal" data-d="2">
+          <div class="photo__frame">
+            <image-slot id="about-photo" shape="rounded" radius="18" fit="contain" placeholder="Slip et billede af dig her"></image-slot>
+          </div>
+        </div>
+      </div>
+      <div class="about__body">
+        <p class="reveal" data-d="1" data-i18n="about.p1"></p>
+        <p class="reveal" data-d="2" data-i18n="about.p2"></p>
+        <div class="stats reveal" data-d="3">
+          <div class="stat"><div class="stat__num"><span data-i18n="about.stat1n">8+</span></div><div class="stat__label" data-i18n="about.stat1l">års erfaring</div></div>
+          <div class="stat"><div class="stat__num"><span data-i18n="about.stat2n">40+</span></div><div class="stat__label" data-i18n="about.stat2l">projekter leveret</div></div>
+          <div class="stat"><div class="stat__num"><span data-i18n="about.stat3n">100%</span></div><div class="stat__label" data-i18n="about.stat3l">lokalt i Aalborg</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STACK ===================== -->
+  <section class="section section--alt section--tight" id="stack">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="stack.eyebrow">Min stak</p>
+        <h2 class="h-lg" data-i18n="stack.heading">Værktøjer jeg bygger med</h2>
+        <p class="lead" data-i18n="stack.sub">Et moderne, type-sikkert setup — fra frontend til database.</p>
+      </div>
+    </div>
+    <div class="stack__marquees reveal" data-d="1">
+      <div class="marquee marquee--l"><div class="marquee__track"></div></div>
+      <div class="marquee marquee--r"><div class="marquee__track"></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="svc.eyebrow">Ydelser</p>
+        <h2 class="h-lg" data-i18n="svc.heading">Det jeg kan hjælpe med</h2>
+        <p class="lead" data-i18n="svc.sub">Fuld dækning fra design til drift — alene eller som en del af dit team.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal" data-d="1"><div class="card__icon"><i class="ph ph-code"></i></div><h3 class="card__title" data-i18n="svc.1t">Webudvikling</h3><p class="card__desc" data-i18n="svc.1d"></p></article>
+        <article class="card reveal" data-d="2"><div class="card__icon"><i class="ph ph-pen-nib"></i></div><h3 class="card__title" data-i18n="svc.2t">Frontend & design</h3><p class="card__desc" data-i18n="svc.2d"></p></article>
+        <article class="card reveal" data-d="3"><div class="card__icon"><i class="ph ph-database"></i></div><h3 class="card__title" data-i18n="svc.3t">Backend & data</h3><p class="card__desc" data-i18n="svc.3d"></p></article>
+        <article class="card reveal" data-d="4"><div class="card__icon"><i class="ph ph-compass-tool"></i></div><h3 class="card__title" data-i18n="svc.4t">Rådgivning</h3><p class="card__desc" data-i18n="svc.4d"></p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section section--alt" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="proj.eyebrow">Projekter</p>
+        <h2 class="h-lg" data-i18n="proj.heading">Udvalgte cases</h2>
+        <p class="lead" data-i18n="proj.sub">Et udpluk af mit arbejde. Rigtige cases lægges op her snart.</p>
+      </div>
+      <div class="projects__grid">
+        <article class="project reveal" data-d="1">
+          <div class="project__thumb"><span data-i18n="proj.soon">Case kommer snart</span></div>
+          <div class="project__body"><h3 class="project__title" data-i18n="proj.1t">Case · Webapp</h3>
+            <div class="project__tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span></div></div>
+        </article>
+        <article class="project reveal" data-d="2">
+          <div class="project__thumb project__thumb--2"><span data-i18n="proj.soon">Case kommer snart</span></div>
+          <div class="project__body"><h3 class="project__title" data-i18n="proj.2t">Case · Landingsside</h3>
+            <div class="project__tags"><span class="tag">Figma</span><span class="tag">Tailwind</span><span class="tag">SCSS</span></div></div>
+        </article>
+        <article class="project reveal" data-d="3">
+          <div class="project__thumb project__thumb--3"><span data-i18n="proj.soon">Case kommer snart</span></div>
+          <div class="project__body"><h3 class="project__title" data-i18n="proj.3t">Case · Platform</h3>
+            <div class="project__tags"><span class="tag">Next.js</span><span class="tag">MongoDB</span><span class="tag">SQL</span></div></div>
+        </article>
+      </div>
+      <p class="note reveal"><i class="ph ph-info"></i><span data-i18n="proj.note"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="test.eyebrow">Anbefalinger</p>
+        <h2 class="h-lg" data-i18n="test.heading">Hvad kunderne siger</h2>
+        <p class="lead" data-i18n="test.sub"></p>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal" data-d="1">
+          <div class="quote__mark">&ldquo;</div>
+          <blockquote class="quote__text" data-i18n="test.1q"></blockquote>
+          <figcaption class="quote__who"><span class="quote__avatar">K</span><span><span class="quote__name" data-i18n="test.1n"></span><br><span class="quote__role" data-i18n="test.1r"></span></span></figcaption>
+        </figure>
+        <figure class="quote reveal" data-d="2">
+          <div class="quote__mark">&ldquo;</div>
+          <blockquote class="quote__text" data-i18n="test.2q"></blockquote>
+          <figcaption class="quote__who"><span class="quote__avatar">K</span><span><span class="quote__name" data-i18n="test.2n"></span><br><span class="quote__role" data-i18n="test.2r"></span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section--alt" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info reveal">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Kontakt</p>
+        <h2 class="h-lg" style="margin-top:14px" data-i18n="contact.heading">Lad os bygge noget sammen</h2>
+        <p class="lead" style="margin-top:18px" data-i18n="contact.sub"></p>
+        <div class="contact__list">
+          <div class="contact__item"><i class="ph ph-envelope-simple"></i><span><span class="lbl" data-i18n="contact.lblEmail">E-mail</span><br><a class="val" id="c-email">hej@madskjaer.dk</a></span></div>
+          <div class="contact__item"><i class="ph ph-phone"></i><span><span class="lbl" data-i18n="contact.lblPhone">Telefon</span><br><a class="val" id="c-phone">+45 12 34 56 78</a></span></div>
+          <div class="contact__item"><i class="ph ph-map-pin"></i><span><span class="lbl" data-i18n="contact.lblLoc">Lokation</span><br><span class="val" data-i18n="contact.loc">Aalborg, Danmark</span></span></div>
+        </div>
+        <div class="socials">
+          <a id="s-github" href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+          <a id="s-linkedin" href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        </div>
+      </div>
+      <form class="form reveal" data-d="1" id="contactForm">
+        <div class="field--row">
+          <div class="field"><label for="f-name" data-i18n="form.name">Navn</label><input id="f-name" name="name" type="text" required data-i18n-ph="form.namePh"></div>
+          <div class="field"><label for="f-email" data-i18n="form.email">E-mail</label><input id="f-email" name="email" type="email" required data-i18n-ph="form.emailPh"></div>
+        </div>
+        <div class="field"><label for="f-msg" data-i18n="form.msg">Besked</label><textarea id="f-msg" name="message" rows="5" required data-i18n-ph="form.msgPh"></textarea></div>
+        <button class="btn btn--accent form__submit" type="submit"><span data-i18n="form.submit">Send besked</span><i class="ph ph-paper-plane-tilt"></i></button>
+        <p class="form__hint" data-i18n="form.hint"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"></span><span>Mathias Oliver Nielsen</span></a>
+      <p class="footer__meta">© <span id="year">2026</span> Mathias Oliver Nielsen · <span data-i18n="footer.made">Designet & kodet i Aalborg</span> <span>•</span></p>
+    </div>
+  </footer>
+
+  <div id="tweaks-root"></div>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/image-slot.js"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="assets/tweaks-panel.jsx"></script>
+  <script type="text/babel" src="assets/tweaks-app.jsx"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

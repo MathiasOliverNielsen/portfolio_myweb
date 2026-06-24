@@ -1,56 +1,43 @@
+import { Code, Pencil, Database, CompassTool } from '@phosphor-icons/react';
+
 interface ServicesProps {
   t: (key: string) => string;
 }
 
 const services = [
-  {
-    key: "web",
-    icon: "🌐",
-  },
-  {
-    key: "backend",
-    icon: "⚙️",
-  },
-  {
-    key: "consulting",
-    icon: "💡",
-  },
-  {
-    key: "optimization",
-    icon: "⚡",
-  },
+  { icon: Code, key: 'svc.1' },
+  { icon: Pencil, key: 'svc.2' },
+  { icon: Database, key: 'svc.3' },
+  { icon: CompassTool, key: 'svc.4' },
 ];
 
 export default function Services({ t }: ServicesProps) {
   return (
-    <section
-      id="services"
-      className="py-20 px-6 bg-white border-t border-gray-100"
-    >
-      <div className="max-w-6xl mx-auto space-y-12">
-        <div className="space-y-4 animate-slide-in">
-          <h2 className="text-5xl md:text-6xl font-bold">
-            {t("services.title")}
-          </h2>
-          <p className="text-xl text-gray-600">{t("services.description")}</p>
+    <section className="section" id="services">
+      <div className="container">
+        <div className="section-head reveal">
+          <p className="eyebrow">{t('svc.eyebrow')}</p>
+          <h2 className="h-lg">{t('svc.heading')}</h2>
+          <p className="lead">{t('svc.sub')}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, idx) => (
-            <div
-              key={service.key}
-              className="space-y-3 p-6 bg-gray-50 rounded-lg border border-gray-100 hover:border-accent hover:bg-white transition-all animate-scale-in"
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              <div className="text-3xl">{service.icon}</div>
-              <h3 className="text-xl font-semibold">
-                {t(`services.${service.key}`)}
-              </h3>
-              <p className="text-gray-600">
-                {t(`services.${service.key}_desc`)}
-              </p>
-            </div>
-          ))}
+        <div className="cards">
+          {services.map((svc, idx) => {
+            const Icon = svc.icon;
+            return (
+              <article
+                key={svc.key}
+                className="card reveal"
+                data-d={idx + 1}
+              >
+                <div className="card__icon">
+                  <Icon size={26} weight="bold" />
+                </div>
+                <h3 className="card__title">{t(`${svc.key}t`)}</h3>
+                <p className="card__desc">{t(`${svc.key}d`)}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,22 +1,27 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { FormEvent, useState } from 'react';
+import { EnvelopeSimple, Phone, MapPin, GithubLogo, LinkedinLogo, PaperPlaneTilt } from '@phosphor-icons/react';
 
 interface ContactProps {
   t: (key: string) => string;
 }
 
+const CONTACT = {
+  email: 'hej@mathiasnielsen.dk',
+  phone: '+45 12 34 56 78',
+  github: 'https://github.com/',
+  linkedin: 'https://linkedin.com/',
+};
+
 export default function Contact({ t }: ContactProps) {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -24,127 +29,124 @@ export default function Contact({ t }: ContactProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { name, email, subject, message } = formData;
-    const emailSubject = encodeURIComponent(
-      subject || t("contact.email_subject")
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent(
+      `${t('svc.heading')} - ${name || t('form.name')}`
     );
-    const emailBody = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    const body = encodeURIComponent(
+      `${t('form.name')}: ${name}\n${t('form.email')}: ${email}\n\n${message}`
     );
 
-    window.location.href = `mailto:${t("contact.email_text")}?subject=${emailSubject}&body=${emailBody}`;
+    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-6 bg-white border-t border-gray-100"
-    >
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-4 animate-slide-in">
-          <h2 className="text-5xl md:text-6xl font-bold">
-            {t("contact.title")}
+    <section className="section section--alt" id="contact">
+      <div className="container contact__grid">
+        <div className="contact__info reveal">
+          <p className="eyebrow">{t('contact.eyebrow')}</p>
+          <h2 className="h-lg" style={{ marginTop: '14px' }}>
+            {t('contact.heading')}
           </h2>
-          <p className="text-xl text-gray-600">{t("contact.description")}</p>
+          <p className="lead" style={{ marginTop: '18px' }}>
+            {t('contact.sub')}
+          </p>
+
+          <div className="contact__list">
+            <div className="contact__item">
+              <EnvelopeSimple size={22} />
+              <span>
+                <span className="lbl">{t('contact.lblEmail')}</span>
+                <br />
+                <a className="val" href={`mailto:${CONTACT.email}`}>
+                  {CONTACT.email}
+                </a>
+              </span>
+            </div>
+
+            <div className="contact__item">
+              <Phone size={22} />
+              <span>
+                <span className="lbl">{t('contact.lblPhone')}</span>
+                <br />
+                <a className="val" href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}>
+                  {CONTACT.phone}
+                </a>
+              </span>
+            </div>
+
+            <div className="contact__item">
+              <MapPin size={22} />
+              <span>
+                <span className="lbl">{t('contact.lblLoc')}</span>
+                <br />
+                <span className="val">{t('contact.loc')}</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="socials">
+            <a href={CONTACT.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <GithubLogo size={20} />
+            </a>
+            <a href={CONTACT.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <LinkedinLogo size={20} />
+            </a>
+          </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-6 animate-fade-in"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label htmlFor="name" className="block text-sm font-medium">
-                {t("contact.name")}
-              </label>
+        <form className="form reveal" data-d="1" onSubmit={handleSubmit}>
+          <div className="field--row">
+            <div className="field">
+              <label htmlFor="f-name">{t('form.name')}</label>
               <input
-                type="text"
-                id="name"
+                id="f-name"
                 name="name"
+                type="text"
+                required
+                placeholder={t('form.namePh')}
                 value={formData.name}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
-                placeholder="Mathias Nielsen"
               />
             </div>
-            <div className="space-y-2">
-              <label htmlFor="email" className="block text-sm font-medium">
-                {t("contact.email")}
-              </label>
+            <div className="field">
+              <label htmlFor="f-email">{t('form.email')}</label>
               <input
-                type="email"
-                id="email"
+                id="f-email"
                 name="email"
+                type="email"
+                required
+                placeholder={t('form.emailPh')}
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
-                placeholder="your@email.com"
               />
             </div>
           </div>
 
-          <div className="space-y-2">
-            <label htmlFor="subject" className="block text-sm font-medium">
-              {t("contact.subject")}
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
-              placeholder={t("contact.email_subject")}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="message" className="block text-sm font-medium">
-              {t("contact.message")}
-            </label>
+          <div className="field">
+            <label htmlFor="f-msg">{t('form.msg')}</label>
             <textarea
-              id="message"
+              id="f-msg"
               name="message"
+              rows={5}
+              required
+              placeholder={t('form.msgPh')}
               value={formData.message}
               onChange={handleChange}
-              required
-              rows={6}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent resize-none"
-              placeholder="Tell me about your project..."
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full md:w-auto px-8 py-3 bg-accent text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-          >
-            {t("contact.send")}
+          <button className="btn btn--accent form__submit" type="submit">
+            <span>{t('form.submit')}</span>
+            <PaperPlaneTilt size={18} weight="bold" />
           </button>
+          <p className="form__hint">{t('form.hint')}</p>
         </form>
-
-        <div className="pt-8 border-t border-gray-100 space-y-4 text-center text-gray-600">
-          <p>{t("contact.address")}</p>
-          <a
-            href="mailto:hej@mathiasnielsen.dk"
-            className="block text-accent hover:text-accent/80 transition-colors font-medium"
-          >
-            {t("contact.email_text")}
-          </a>
-        </div>
       </div>
     </section>
   );

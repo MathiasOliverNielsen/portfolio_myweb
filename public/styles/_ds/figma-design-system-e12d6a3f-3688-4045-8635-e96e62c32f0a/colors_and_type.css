@@ -1,0 +1,256 @@
+/* ============================================================
+   FIGMA DESIGN SYSTEM — CSS Custom Properties
+   Colors + Typography
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Roboto — local variable font files */
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+
+:root {
+
+  /* --- Brand / Logo Component Colors --- */
+  --figma-red:        #F24E1E;
+  --figma-purple:     #A259FF;
+  --figma-blue:       #1ABCFE;
+  --figma-green:      #0ACF83;
+  --figma-orange:     #FF7262;
+
+  /* --- Neutral Scale --- */
+  --gray-0:   #FFFFFF;
+  --gray-50:  #F5F5F5;
+  --gray-100: #EBEBEB;
+  --gray-200: #E6E6E6;
+  --gray-300: #CCCCCC;
+  --gray-400: #B3B3B3;
+  --gray-500: #999999;
+  --gray-600: #666666;
+  --gray-700: #4D4D4D;
+  --gray-800: #333333;
+  --gray-850: #2C2C2C;
+  --gray-900: #1E1E1E;
+  --gray-950: #141414;
+  --gray-1000: #000000;
+
+  /* --- Editor Dark Surface --- */
+  --editor-bg:            #1E1E1E;
+  --editor-panel:         #2C2C2C;
+  --editor-surface:       #333333;
+  --editor-surface-hover: #3C3C3C;
+  --editor-border:        #3C3C3C;
+  --editor-border-subtle: #282828;
+  --editor-divider:       rgba(255,255,255,0.08);
+
+  /* --- Editor Text (Dark) --- */
+  --editor-text-primary:   #E6E6E6;
+  --editor-text-secondary: #B3B3B3;
+  --editor-text-tertiary:  #808080;
+  --editor-text-disabled:  #4D4D4D;
+
+  /* --- Editor Accent / Interactive --- */
+  --editor-accent:         #0D99FF;
+  --editor-accent-hover:   #2BA8FF;
+  --editor-selection:      rgba(13, 153, 255, 0.25);
+  --editor-hover-overlay:  rgba(255,255,255,0.08);
+  --editor-press-overlay:  rgba(255,255,255,0.12);
+
+  /* --- Light / Marketing Surface --- */
+  --light-bg:              #FFFFFF;
+  --light-bg-subtle:       #F5F5F5;
+  --light-bg-muted:        #EBEBEB;
+  --light-border:          #E6E6E6;
+  --light-border-strong:   #CCCCCC;
+
+  /* --- Light Text --- */
+  --light-text-primary:    #1E1E1E;
+  --light-text-secondary:  #666666;
+  --light-text-tertiary:   #999999;
+  --light-text-disabled:   #CCCCCC;
+
+  /* --- Semantic / Status --- */
+  --color-success:   #0ACF83;
+  --color-warning:   #FF9F1A;
+  --color-error:     #F24E1E;
+  --color-info:      #1ABCFE;
+  --color-purple:    #A259FF;
+
+  /* Success/Error with alpha */
+  --color-success-bg: rgba(10, 207, 131, 0.12);
+  --color-error-bg:   rgba(242, 78, 30, 0.12);
+  --color-warning-bg: rgba(255, 159, 26, 0.12);
+  --color-info-bg:    rgba(26, 188, 254, 0.12);
+
+  /* ============================================================
+     TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* --- Font Families --- */
+  --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand:   'Roboto', sans-serif;   /* Brand / display headings */
+  --font-roboto:  'Roboto', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* --- Font Weights --- */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extrabold:800;
+  --weight-black:    900;
+
+  /* --- UI / Product Type Scale --- */
+  --text-ui-xxs:  10px;
+  --text-ui-xs:   11px;
+  --text-ui-sm:   12px;
+  --text-ui-base: 13px;
+  --text-ui-md:   14px;
+  --text-ui-lg:   16px;
+  --text-ui-xl:   18px;
+  --text-ui-2xl:  20px;
+
+  /* --- Marketing / Display Type Scale --- */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  32px;
+  --text-4xl:  40px;
+  --text-5xl:  48px;
+  --text-6xl:  64px;
+  --text-7xl:  80px;
+  --text-8xl:  96px;
+
+  /* --- Line Heights --- */
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.65;
+
+  /* --- Letter Spacing --- */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:   0.01em;
+  --tracking-wider:  0.03em;
+  --tracking-widest: 0.06em;  /* Used for uppercase labels */
+
+  /* ============================================================
+     SEMANTIC TYPOGRAPHY
+     ============================================================ */
+
+  /* --- Display headings (marketing) --- */
+  --h-display-font:    var(--font-brand);
+  --h-display-weight:  var(--weight-bold);
+  --h-display-leading: var(--leading-tight);
+  --h-display-tracking:var(--tracking-tight);
+
+  /* --- Body (marketing) --- */
+  --body-font:    var(--font-brand);
+  --body-weight:  var(--weight-regular);
+  --body-leading: var(--leading-relaxed);
+  --body-size:    var(--text-base);
+
+  /* ============================================================
+     SPACING TOKENS
+     ============================================================ */
+
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  /* ============================================================
+     BORDER RADIUS
+     ============================================================ */
+
+  --radius-none:   0;
+  --radius-xs:     2px;
+  --radius-sm:     4px;
+  --radius-md:     6px;
+  --radius-lg:     8px;
+  --radius-xl:     12px;
+  --radius-2xl:    16px;
+  --radius-full:   9999px;
+
+  /* ============================================================
+     SHADOWS / ELEVATION
+     ============================================================ */
+
+  /* Dark (editor) */
+  --shadow-dark-sm:   0 1px 4px rgba(0,0,0,0.4);
+  --shadow-dark-md:   0 4px 16px rgba(0,0,0,0.5);
+  --shadow-dark-lg:   0 8px 32px rgba(0,0,0,0.6);
+  --shadow-dark-xl:   0 16px 48px rgba(0,0,0,0.7);
+
+  /* Light (marketing) */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:   0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:   0 4px 16px rgba(0,0,0,0.10), 0 8px 32px rgba(0,0,0,0.08);
+  --shadow-xl:   0 8px 32px rgba(0,0,0,0.12), 0 16px 48px rgba(0,0,0,0.10);
+
+  /* ============================================================
+     TRANSITIONS
+     ============================================================ */
+
+  --transition-fast:   100ms ease-out;
+  --transition-base:   150ms ease-out;
+  --transition-slow:   250ms ease-out;
+
+  /* ============================================================
+     Z-INDEX SCALE
+     ============================================================ */
+
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-overlay:  200;
+  --z-modal:    300;
+  --z-toast:    400;
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES
+   ============================================================ */
+
+/* Semantic heading styles */
+.h-display-xl { font-family: var(--font-brand); font-size: var(--text-7xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.h-display-lg { font-family: var(--font-brand); font-size: var(--text-6xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.h1            { font-family: var(--font-brand); font-size: var(--text-4xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.h2            { font-family: var(--font-brand); font-size: var(--text-3xl); font-weight: var(--weight-semibold); line-height: var(--leading-snug); }
+.h3            { font-family: var(--font-brand); font-size: var(--text-2xl); font-weight: var(--weight-semibold); line-height: var(--leading-snug); }
+.h4            { font-family: var(--font-brand); font-size: var(--text-xl);  font-weight: var(--weight-semibold); line-height: var(--leading-normal); }
+.body-lg       { font-family: var(--font-brand); font-size: var(--text-lg);  font-weight: var(--weight-regular); line-height: var(--leading-relaxed); }
+.body          { font-family: var(--font-brand); font-size: var(--text-base);font-weight: var(--weight-regular); line-height: var(--leading-relaxed); }
+.body-sm       { font-family: var(--font-brand); font-size: var(--text-sm);  font-weight: var(--weight-regular); line-height: var(--leading-normal); }
+.label         { font-family: var(--font-brand); font-size: var(--text-ui-xs); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; }
+.code          { font-family: var(--font-mono); font-size: var(--text-sm);  font-weight: var(--weight-regular); line-height: var(--leading-relaxed); }
